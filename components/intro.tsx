@@ -10,6 +10,10 @@ import { useActiveSection, } from '@/lib/hooks';
 export default function Intro() {
   const ref = useGetView("Home")
   const {setActiveSection,setLastClick} = useActiveSection()
+  const handleClick = () =>{
+    setActiveSection('Contact');
+    setLastClick(Date.now())
+  }
   return (
     <section id='Home' className='mb-28 max-w-[50rem] '
       ref={ref}
@@ -71,7 +75,7 @@ export default function Intro() {
         }}
       >
         <Link href='#contact' className='group flex justify-center items-center gap-2 bg-black text-white  px-4 py-4 shadow-md rounded-full sm:text-2xl outline-none  focus:scale-110 hover:scale-110 active:scale-105 transition-all'
-        onClick={()=>{setActiveSection('Contact');setLastClick(Date.now())}}
+        onClick={()=>{handleClick}}
         >
           contact me here <BsArrowRight className='opacity-70 group-hover:translate-x-2 transition-all' />
         </Link>
